@@ -34,6 +34,7 @@
     border-radius: 50%;
     background-color: $c-light;
     border: 2px solid $c-light;
+    transition: all 0.1s ease-in-out;
     z-index: -1;
   }
 
@@ -140,6 +141,20 @@
   .social-block--active & {
     opacity: 1;
     pointer-events: auto;
+
+    & .social-block__link {
+      opacity: 1;
+
+      &.social-block__link--fb {
+        transition: opacity 0.3s ease-in-out 0.1s;
+      }
+      &.social-block__link--insta {
+        transition: opacity 0.3s ease-in-out 0.2s;
+      }
+      &.social-block__link--vk {
+        transition: opacity 0.3s ease-in-out 0.3s;
+      }
+    }
   }
 
   li {
@@ -168,6 +183,8 @@
   color: $c-light;
   border: 2px solid transparent;
   border-radius: 50%;
+  opacity: 0;
+  transition: color 0.3s ease-in-out;
 
   @media (min-width: $stop-scaling) {
     width: 40px;

@@ -146,13 +146,13 @@
       opacity: 1;
 
       &.social-block__link--fb {
-        transition: opacity 0.3s ease-in-out 0.1s;
+        transition: color 0.3s ease-in-out, opacity 0.3s ease-in-out 0.1s;
       }
       &.social-block__link--insta {
-        transition: opacity 0.3s ease-in-out 0.2s;
+        transition: color 0.3s ease-in-out, opacity 0.3s ease-in-out 0.2s;
       }
       &.social-block__link--vk {
-        transition: opacity 0.3s ease-in-out 0.3s;
+        transition: color 0.3s ease-in-out, opacity 0.3s ease-in-out 0.3s;
       }
     }
   }
@@ -184,7 +184,6 @@
   border: 2px solid transparent;
   border-radius: 50%;
   opacity: 0;
-  transition: color 0.3s ease-in-out;
 
   @media (min-width: $stop-scaling) {
     width: 40px;

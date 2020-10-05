@@ -1,7 +1,19 @@
+@keyframes ExtendFormField {
+  0% {
+    flex: 0;
+    padding: 0;
+  }
+  100% {
+    flex: 1;
+    padding: 0 5.6rem;
+  }
+}
+
 .form {
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: flex-end;
 }
 
 .form__label {
@@ -30,11 +42,14 @@
 }
 
 .form__field {
-  flex: none;
-  margin-right: 3rem;
-  padding: 0 5.6rem;
-  height: 6rem;
+  flex: 0;
+  padding: 0;
   width: calc(100% - 21rem);
+
+  animation: ExtendFormField 0.5s ease-in 0.5s 1 normal forwards;
+
+  margin-right: 3rem;
+  height: 6rem;
   text-transform: uppercase;
   font: inherit;
   font-size: 2.4rem;
@@ -79,7 +94,7 @@
 }
 
 .form__button {
-  flex-grow: 1;
+  // flex-grow: 1;
 
   @media (orientation: portrait) {
     position: relative;

@@ -1,3 +1,17 @@
+$FadeInLeftToRightDuration: 0.3s;
+$FadeInLeftToRightDelay: 0.5s;
+
+@keyframes FadeInLeftToRight {
+  0% {
+    right: -30px;
+    opacity: 0;
+  }
+  100% {
+    right: 0px;
+    opacity: 1;
+  }
+}
+
 .slider {
   position: relative;
   flex-grow: 1;
@@ -19,6 +33,13 @@
   padding: 14.6rem 4rem 10rem 9.7rem;
   height: auto;
 
+  & .slider__item-text {
+    opacity: 0;
+    position: relative;
+    animation: FadeInLeftToRight $FadeInLeftToRightDuration ease-in
+      $FadeInLeftToRightDelay 1 normal forwards;
+  }
+
   @media (min-width: $stop-scaling) {
     padding: 146px 40px 100px 97px;
   }
@@ -39,6 +60,10 @@
   &:nth-child(even) {
     .slider__item-text {
       align-self: flex-end;
+
+      animation-delay: calc(
+        #{$FadeInLeftToRightDuration} + #{$FadeInLeftToRightDelay}
+      );
 
       @media (max-width: $mobile) and (orientation: landscape) {
         align-self: flex-start;

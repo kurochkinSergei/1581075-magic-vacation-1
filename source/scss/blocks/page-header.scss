@@ -242,15 +242,14 @@
     color: inherit;
     padding: 0 0.5em 0.5em;
 
-    &::after {
+    &::after,
+    &::before {
       content: "";
       position: absolute;
       bottom: 0;
-      width: 0%;
       height: 2px;
       background-color: $c-light;
       display: block;
-      left: 0;
 
       @media (max-width: $tablet) and (orientation: portrait) {
         left: 0;
@@ -263,6 +262,16 @@
         right: 0;
         background-color: $c-dark;
       }
+    }
+
+    &::after {
+      width: 0%;
+      left: 0;
+    }
+
+    &::before {
+      width: 0%;
+      right: 0;
     }
 
     &.active {
@@ -282,6 +291,20 @@
         background-color: $c-purple;
         transition: width 0.3s ease-out;
         width: 100%;
+      }
+
+      &::before {
+        width: 100%;
+        // после заполнения фиолетовой полоски показываем белую под ней
+        transition: width 0.01s ease-out 0.3s;
+      }
+    }
+
+    &:not(:hover) {
+      &::before {
+        // убираем белую полоску
+        transition: width 0.3s ease-out;
+        width: 0%;
       }
     }
   }

@@ -3,11 +3,11 @@ $FadeInLeftToRightDelay: 0.5s;
 
 @keyframes FadeInLeftToRight {
   0% {
-    right: -30px;
+    right: -3rem;
     opacity: 0;
   }
   100% {
-    right: 0px;
+    right: 0;
     opacity: 1;
   }
 }

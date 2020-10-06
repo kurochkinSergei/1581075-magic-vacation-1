@@ -37,7 +37,7 @@
   color: $c-light;
 
   opacity: 0;
-  left: -20px;
+  left: -2rem;
   transition: all 0.5s cubic-bezier(0.29, 1.07, 0.67, 0.97);
 
   @media (min-width: $stop-scaling) {

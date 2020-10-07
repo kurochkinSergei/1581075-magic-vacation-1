@@ -10,6 +10,8 @@ import social from "./modules/social.js";
 import FullPageScroll from "./modules/full-page-scroll";
 import onLoad from "./modules/onLoad.js";
 
+import { animateRulesLinkButton } from "./modules/rules";
+
 // init modules
 mobileHeight();
 slider();
@@ -24,3 +26,5 @@ const fullPageScroll = new FullPageScroll();
 fullPageScroll.init();
 
 onLoad();
+
+animateRulesLinkButton();

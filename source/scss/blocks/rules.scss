@@ -34,6 +34,17 @@ $rules-lead-delay: 0.5s;
   }
 }
 
+@keyframes ExtendStartButton {
+  0% {
+    width: 0;
+    padding: 1.5rem 0;
+  }
+  100% {
+    width: 18rem;
+    padding: 1.5rem 2.9rem;
+  }
+}
+
 .rules {
   position: relative;
   flex-grow: 1;
@@ -272,4 +283,15 @@ $rules-lead-delay: 0.5s;
     bottom: 2rem;
     right: 1.5rem;
   }
+}
+
+.rules__link.animated {
+  width: 0;
+  padding: 1.6rem 0;
+  overflow: hidden;
+  animation: ExtendStartButton 0.5s ease-in 0s forwards paused;
+}
+
+.rules__link.animated.start-animation {
+  animation-play-state: running;
 }

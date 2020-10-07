@@ -45,7 +45,9 @@
   right: 0;
   color: $c-dark;
   background-color: $c-light;
+  bottom: -7rem;
   z-index: 1;
+  transition: bottom 0.5s cubic-bezier(0.29, 1.07, 0.67, 0.97);
 
   @media (max-width: $tablet) and (orientation: portrait) {
     width: 3.5rem;
@@ -68,6 +70,10 @@
       height: 16rem;
     }
   }
+}
+
+body.loaded .screen__footer {
+  bottom: 0;
 }
 
 .screen__footer-wrapper {
@@ -290,7 +296,8 @@
 
 .screen--story {
   background-color: $c-dark;
-  background-image: url("../img/slide1.jpg"), url("../img/slide2.jpg"), url("../img/slide3.jpg"), url("../img/slide4.jpg");
+  background-image: url("../img/slide1.jpg"), url("../img/slide2.jpg"),
+    url("../img/slide3.jpg"), url("../img/slide4.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

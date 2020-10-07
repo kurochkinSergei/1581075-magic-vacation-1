@@ -308,8 +308,18 @@ body.loaded .screen__footer {
   }
 }
 
-.screen--prizes {
+.transition-background {
+  height: 100%;
+  width: 100%;
+  margin-top: 100%;
   background-color: $c-dark;
+  transition: all 2s ease-in;
+  top: 0;
+  position: absolute;
+}
+
+.screen--prizes.active ~ .transition-background {
+  margin-top: 0;
 }
 
 .screen--game {

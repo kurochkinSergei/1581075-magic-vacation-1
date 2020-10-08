@@ -1,3 +1,29 @@
+@keyframes RollSliderControlPrev {
+  0% {
+    transform: rotate(0deg);
+    opacity: 0;
+    left: -5rem;
+  }
+  100% {
+    transform: rotate(360deg);
+    opacity: 1;
+    left: 0rem;
+  }
+}
+
+@keyframes RollSliderControlNext {
+  0% {
+    transform: rotate(360deg);
+    opacity: 0;
+    left: 5rem;
+  }
+  100% {
+    transform: rotate(0deg);
+    opacity: 1;
+    left: 0rem;
+  }
+}
+
 .slider {
   position: relative;
   flex-grow: 1;
@@ -149,12 +175,33 @@
   }
 }
 
+.screen--story.active {
+  & .slider__control {
+    animation-play-state: running;
+  }
+}
+
 .slider__control {
   @include btn-reset;
   position: relative;
   width: 4rem;
   height: 4rem;
   color: $c-dark;
+  transform-origin: center;
+
+  animation-duration: 700ms;
+  // сделал с прокатыванием
+  animation-timing-function: cubic-bezier(0.42, 0, 0.55, 2.22);
+  animation-fill-mode: forwards;
+  animation-play-state: paused;
+
+  &--prev {
+    animation-name: RollSliderControlPrev;
+  }
+  &--next {
+    left: -50px;
+    animation-name: RollSliderControlNext;
+  }
 
   @media (min-width: $stop-scaling) {
     width: 40px;

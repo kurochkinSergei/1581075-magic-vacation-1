@@ -1,0 +1,21 @@
+.animated-text {
+  & .animated-text__word {
+    overflow: hidden;
+    max-height: 1em;
+    display: inline-block;
+    white-space: nowrap;
+
+    & > span {
+      transform: translate3d(0, 1em, 0);
+      display: inline-block;
+      vertical-align: sub;
+      letter-spacing: initial;
+    }
+  }
+
+  &.active {
+    & .animated-text__word > span {
+      transform: translate3d(0, 0em, 0);
+    }
+  }
+}

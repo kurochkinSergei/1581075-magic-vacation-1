@@ -1,3 +1,50 @@
+$rules-lead-delay: 0.5s;
+
+@keyframes FadeIn {
+  0% {
+    transform: translateY(3rem);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes FadeInRuleItemText {
+  0% {
+    transform: translateX(2rem);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes ScaleRuleItemCounter {
+  0% {
+    transform: scale(0);
+  }
+  80% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes ExtendStartButton {
+  0% {
+    width: 0;
+    padding: 1.5rem 0;
+  }
+  100% {
+    width: 18rem;
+    padding: 1.5rem 2.9rem;
+  }
+}
+
 .rules {
   position: relative;
   flex-grow: 1;
@@ -59,6 +106,9 @@
   text-transform: uppercase;
   font-size: 2.4rem;
   line-height: 1.2;
+
+  opacity: 0;
+  animation: FadeIn 0.5s $rules-lead-delay ease-in 1 normal forwards;
 
   @media (min-width: $stop-scaling) {
     margin-left: 58px;
@@ -124,6 +174,27 @@
   padding-left: 6.5rem;
   break-inside: avoid;
 
+  & > p {
+    opacity: 0;
+  }
+
+  @for $i from 1 through 4 {
+    &:nth-child(#{$i}) {
+      & > p {
+        animation-name: FadeInRuleItemText;
+        animation-duration: 0.5s;
+        animation-fill-mode: forwards;
+        animation-delay: calc(#{$i * 0.3}s + #{$rules-lead-delay});
+      }
+      &:before {
+        animation-name: ScaleRuleItemCounter;
+        animation-duration: 0.5s;
+        animation-fill-mode: forwards;
+        animation-delay: calc(#{$i * 0.3}s + #{$rules-lead-delay});
+      }
+    }
+  }
+
   @media (min-width: $stop-scaling) {
     margin: 0 0 62px;
     padding-top: 6px;
@@ -159,6 +230,8 @@
     border-radius: 50%;
     line-height: 5rem;
     text-align: center;
+    overflow: hidden;
+    transform: scale(0);
 
     @media (max-width: $tablet) and (orientation: portrait) {
       top: 1rem;
@@ -210,4 +283,15 @@
     bottom: 2rem;
     right: 1.5rem;
   }
+}
+
+.rules__link.animated {
+  width: 0;
+  padding: 1.6rem 0;
+  overflow: hidden;
+  animation: ExtendStartButton 0.5s ease-in 0s forwards paused;
+}
+
+.rules__link.animated.start-animation {
+  animation-play-state: running;
 }

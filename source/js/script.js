@@ -11,6 +11,8 @@ import FullPageScroll from "./modules/full-page-scroll";
 import onLoad from "./modules/onLoad.js";
 import animateWords from "./modules/animateWords.js";
 
+import { animateRulesLinkButton } from "./modules/rules";
+
 // init modules
 mobileHeight();
 slider();
@@ -26,3 +28,5 @@ fullPageScroll.init();
 
 onLoad();
 animateWords();
+
+animateRulesLinkButton();
